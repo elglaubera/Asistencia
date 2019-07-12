@@ -1,0 +1,403 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <!-- Bootstrap -->
+        <h:outputStylesheet name="vendors/bootstrap/dist/css/bootstrap.min.css"/>
+        <!-- Font Awesome -->
+        <h:outputStylesheet name="vendors/font-awesome/css/font-awesome.min.css"/>
+        <!-- NProgress -->
+        <h:outputStylesheet name="vendors/nprogress/nprogress.css"/>
+        <!-- iCheck -->
+        <h:outputStylesheet name="vendors/iCheck/skins/flat/green.css"/>
+        <!-- bootstrap-wysiwyg -->
+        <h:outputStylesheet name="vendors/google-code-prettify/bin/prettify.min.css"/>
+        <!-- Select2 -->
+        <h:outputStylesheet name="vendors/select2/dist/css/select2.min.css"/>
+        <!-- Switchery -->
+        <h:outputStylesheet name="vendors/switchery/dist/switchery.min.css"/>
+        <!-- starrr -->
+        <h:outputStylesheet name="vendors/starrr/dist/starrr.css"/>
+        <!-- bootstrap-daterangepicker -->
+        <h:outputStylesheet name="vendors/bootstrap-daterangepicker/daterangepicker.css"/>
+        <!-- bootstrap-datetimepicker -->
+        <h:outputStylesheet name="vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css"/>
+        <!-- Ion.RangeSlider -->
+        <h:outputStylesheet name="vendors/normalize-css/normalize.css"/>
+        <h:outputStylesheet name="vendors/ion.rangeSlider/css/ion.rangeSlider.css"/>
+        <h:outputStylesheet name="vendors/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css"/>
+        <!-- Bootstrap Colorpicker -->
+        <h:outputStylesheet name="vendors/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css"/>
+        <!-- Cropper -->
+        <h:outputStylesheet name="vendors/cropper/dist/cropper.min.css"/>
+        <!-- bootstrap-progressbar -->
+        <h:outputStylesheet name="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css"/>
+        <!-- JQVMap -->
+        <h:outputStylesheet name="vendors/jqvmap/dist/jqvmap.min.css"/>
+        <!-- Custom Theme Style -->
+        <h:outputStylesheet name="build/css/custom.min.css"/>
+
+        <title>Chamadas</title>
+
+    </h:head>
+
+    <h:body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                <div class="col-md-3 left_col">
+                    <div class="left_col scroll-view">
+                        <div class="navbar nav_title" style="border: 0;">
+                            <a href="../index.xhtml" class="site_title"><i class="fa fa-wrench"></i> <span>ElevCalls</span></a>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- menu profile quick info -->
+                        <div class="profile clearfix">
+                            <div class="profile_info">
+                                <span>Bem vindo,</span>
+                                <h2></h2>
+                            </div>
+                        </div>
+                        <!-- /menu profile quick info -->
+
+
+                        <!-- sidebar menu -->
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                <h3>Menu</h3>
+                                <ul class="nav side-menu">
+                                    <li><a><i class="fa fa-phone-square"></i> Chamadas <span class="fa fa-chevron-down"></span></a>
+                                        <h:form>
+                                            <ul class="nav child_menu">
+                                                <li><h:commandLink action="#{chamadasController.prepareCreate}" value="Cadastrar"/></li>
+                                                <li><h:commandLink action="#{chamadasController.prepareList}" value="Listar" immediate="true"/></li>
+                                            </ul>
+                                        </h:form>
+                                    </li>
+                                    <li><a><i class="fa fa-building-o"></i> Condomínios <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="../condominios/Create.xhtml">Cadastrar</a></li>
+                                            <li><a href="../condominios/List.xhtml">Listar</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-cogs"></i> Peças <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="../pecas/Create.xhtml">Cadastrar</a></li>
+                                            <li><a href="../pecas/List.xhtml">Listar</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-user"></i> Funcionários <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="../funcionarios/Create.xhtml">Cadastrar</a></li>
+                                            <li><a href="../funcionarios/List.xhtml">Listar</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-list"></i> Pendências <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="../pendencias/Create.xhtml">Cadastrar</a></li>
+                                            <li><a href="../pendencias/List.xhtml">Listar</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div><!-- /sidebar menu -->
+
+                        <!-- /menu footer buttons -->
+                        <!-- /menu footer buttons -->
+                    </div>
+                </div>
+
+                <!-- top navigation -->
+                <div class="top_nav">
+                    <div class="nav_menu">
+                        <nav>
+                            <div class="nav toggle">
+                                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                            </div>
+                            <h:form>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="">
+                                        <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            Usuário
+                                            <span class=" fa fa-angle-down"></span>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                            <li><a href="../login/Create.xhtml"> Cadastrar Usuário</a></li>
+                                            <li><a href="../login/List.xhtml"> Lista de usuários</a></li>
+                                            <li><a href="../index.xhtml"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </h:form>
+                        </nav>
+                    </div>
+                </div>
+                <!-- /top navigation -->
+
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <div class="">
+                        <div class="page-title">
+                            <div class="title_left">
+                                <h3>Cadastro de Chamadas</h3>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Informações </h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <h:panelGroup id="messagePanel" layout="block">
+                                            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                                        </h:panelGroup>
+                                        <h:form>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Condomínio | Endereço *" for="condominios" />
+                                                <h:selectOneMenu class="form-control" id="condominios" value="#{chamadasController.selected.condominios}" title="#{bundle.CreateChamadasTitle_condominios}" required="true" requiredMessage="#{bundle.CreateChamadasRequiredMessage_condominios}">
+                                                    <f:selectItems value="#{condominiosController.itemsAvailableSelectOne}"/>
+                                                </h:selectOneMenu>
+                                            </div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Elevador *" for="elevador" />
+                                                <h:selectOneMenu class="form-control" id="elevador" value="#{chamadasController.selected.elevador}" title="#{bundle.CreateChamadasTitle_elevador}">
+                                                    <f:selectItem itemValue="Social" itemLabel="Social"/>
+                                                    <f:selectItem itemValue="Serviço" itemLabel="Serviço"/>
+                                                    <f:selectItem itemValue="Único" itemLabel="Único"/>
+                                                    <f:selectItem itemValue="Outros" itemLabel="Outros"/>
+                                                    <f:selectItem itemLabel=""/>
+                                                </h:selectOneMenu>
+                                            </div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Login *" for="login" />
+                                                <h:selectOneMenu class="form-control" id="login" value="#{chamadasController.selected.login}" title="#{bundle.CreateChamadasTitle_login}" required="true" requiredMessage="#{bundle.CreateChamadasRequiredMessage_login}">
+                                                    <f:selectItems value="#{loginController.itemsAvailableSelectOne}"/>
+                                                </h:selectOneMenu>
+                                            </div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Nome so Solicitante *" for="nomeSolicitante" />
+                                                <h:inputText class="form-control" id="nomeSolicitante" value="#{chamadasController.selected.nomeSolicitante}" title="#{bundle.CreateChamadasTitle_nomeSolicitante}" />
+                                            </div>
+                                            <div class="ln_solid col-md-12 col-sm-12 col-xs-12 form-group"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Tel. solicitante *" for="telefoneSolicitante" />
+                                                <h:inputText pt:data-inputmask="'mask' : '999999999'" class="form-control" id="telefoneSolicitante" value="#{chamadasController.selected.telefoneSolicitante}" title="#{bundle.CreateChamadasTitle_telefoneSolicitante}" />
+                                            </div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Técnico *" for="funcionarios" />
+                                                <h:selectOneMenu class="form-control" id="funcionarios" value="#{chamadasController.selected.funcionarios}" title="#{bundle.CreateChamadasTitle_funcionarios}" required="true" requiredMessage="#{bundle.CreateChamadasRequiredMessage_funcionarios}">
+                                                    <f:selectItems value="#{funcionariosController.itemsAvailableSelectOne}"/>
+                                                </h:selectOneMenu>
+                                            </div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Status da chamada *" for="statusChamadas" />
+                                                <h:selectOneMenu class="form-control" id="statusChamadas" value="#{chamadasController.selected.statusChamadas}" title="#{bundle.CreateChamadasTitle_statusChamadas}">
+                                                    <f:selectItem itemValue="Aguardando atendimento" itemLabel="Aguardando atendimento"/>
+                                                    <f:selectItem itemValue="Em atendimento" itemLabel="Em atendimento"/>
+                                                    <f:selectItem itemValue="Atendido" itemLabel="Atendido"/>
+                                                    <f:selectItem itemValue="Retornando para atendimento" itemLabel="Retornando para atendimento"/>
+                                                    <f:selectItem itemValue="Cancelado" itemLabel="Cancelado"/>
+                                                    <f:selectItem itemLabel=""/>
+                                                </h:selectOneMenu>
+                                            </div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Prioridade *" for="prioridade" />
+                                                <h:selectOneMenu class="form-control" id="prioridade" value="#{chamadasController.selected.prioridade}" title="#{bundle.CreateChamadasTitle_prioridade}" >
+                                                    <f:selectItem itemValue="Passageiro preso" itemLabel="Passageiro preso"/>
+                                                    <f:selectItem itemValue="Elevador parado" itemLabel="Elevador parado"/>
+                                                    <f:selectItem itemValue="Elevador defeituoso" itemLabel="Elevador defeituoso"/>
+                                                    <f:selectItem itemLabel=""/>
+                                                </h:selectOneMenu>
+                                            </div>
+                                            <div class="ln_solid col-md-12 col-sm-12 col-xs-12 form-group"></div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="TIpo de defeito *" for="tipoDefeito" />
+                                                <h:selectOneMenu class="form-control" id="tipoDefeito" value="#{chamadasController.selected.tipoDefeito}" title="#{bundle.CreateChamadasTitle_tipoDefeito}">
+                                                    <f:selectItem itemValue="Parado" itemLabel="Parado"/>
+                                                    <f:selectItem itemValue="Porta com defeito" itemLabel="Porta com defeito"/>
+                                                    <f:selectItem itemValue="Barulho" itemLabel="Barulho"/>
+                                                    <f:selectItem itemValue="Display com defeito" itemLabel="Display com defeito"/>
+                                                    <f:selectItem itemValue="Iluminação com defeito" itemLabel="Iluminação com defeito"/>
+                                                    <f:selectItem itemValue="Botão com defeito" itemLabel="Botão com defeito"/>
+                                                    <f:selectItem itemValue="Desnivelado" itemLabel="Desnivelado"/>
+                                                    <f:selectItem itemValue="Não para nos andares" itemLabel="Não para nos andares"/>
+                                                    <f:selectItem itemValue="Outros" itemLabel="Outros"/>
+                                                    <f:selectItem itemLabel=""/>
+                                                </h:selectOneMenu>
+                                            </div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Data e Hora da Solicitação *" for="horaSolicitação" />
+                                                <div class='input-group date' id='myDatepicker'>
+                                                    <h:inputText class="form-control" id="horaSolicitação" value="#{chamadasController.selected.horaSolicitação}" title="#{bundle.CreateChamadasTitle_horaSolicitação}" />
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Data e Hora do Envio *" for="horaEnvio" />
+                                                <div class='input-group date' id='datetimepicker6'>
+                                                    <h:inputText class="form-control" id="horaEnvio" value="#{chamadasController.selected.horaEnvio}" title="#{bundle.CreateChamadasTitle_horaEnvio}" />
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="ln_solid col-md-12 col-sm-12 col-xs-12 form-group"></div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Descrição do defeito *" for="descricaoDefeito" />
+                                                <h:inputTextarea rows="5" class="form-control" id="descricaoDefeito" value="#{chamadasController.selected.descricaoDefeito}" title="#{bundle.CreateChamadasTitle_descricaoDefeito}" />
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                                <br/>
+                                                <br/>
+                                                <div class="col-md-9 col-sm-6 col-xs-12 col-md-offset-3">
+                                                    <h:commandButton type="reset" class="btn btn-warning" value="Apagar"/>
+                                                    <h:commandButton action="#{chamadasController.prepareList}" class="btn btn-danger" value="Cancelar" immediate="true"/> 
+                                                    <h:commandButton type="submit" class="btn btn-success" action="#{chamadasController.create}" value="Salvar"/>
+                                                </div>
+                                            </div>
+                                        </h:form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /page content -->
+
+                <!-- footer content -->
+                <footer>
+                    <div class="pull-right">
+                        ElevCalls - Criado por Glauber Rodrigues
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <h:outputScript name="vendors/jquery/dist/jquery.min.js"/>
+        <!-- Bootstrap -->
+        <h:outputScript name="vendors/bootstrap/dist/js/bootstrap.min.js"/>
+        <!-- FastClick -->
+        <h:outputScript name="vendors/fastclick/lib/fastclick.js"/>
+        <!-- NProgress -->
+        <h:outputScript name="vendors/nprogress/nprogress.js"/>
+        <!-- Chart.js -->
+        <h:outputScript name="vendors/Chart.js/dist/Chart.min.js"/>
+        <!-- gauge.js -->
+        <h:outputStylesheet name="vendors/gauge.js/dist/gauge.min.js"/>
+        <!-- bootstrap-progressbar -->
+        <h:outputScript name="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"/>
+        <!-- iCheck -->
+        <h:outputScript name="vendors/iCheck/icheck.min.js"/>
+        <!-- iCheck -->
+        <h:outputScript name="vendors/iCheck/icheck.min.js"/>
+        <!-- Skycons -->
+        <h:outputScript name="vendors/skycons/skycons.js"/>
+        <!-- Flot -->
+        <h:outputScript name="vendors/Flot/jquery.flot.js"/>
+        <h:outputScript name="vendors/Flot/jquery.flot.pie.js"/>
+        <h:outputScript name="vendors/Flot/jquery.flot.time.js"/>
+        <h:outputScript name="vendors/Flot/jquery.flot.stack.js"/>
+        <h:outputScript name="vendors/Flot/jquery.flot.resize.js"/>
+        <!-- Flot plugins -->
+        <h:outputScript name="vendors/flot.orderbars/js/jquery.flot.orderBars.js"/>
+        <h:outputScript name="vendors/flot-spline/js/jquery.flot.spline.min.js"/>
+        <h:outputScript name="vendors/flot.curvedlines/curvedLines.js"/>
+        <!-- DateJS -->
+        <h:outputScript name="vendors/DateJS/build/date.js"/>
+        <!-- JQVMap -->
+        <h:outputScript name="vendors/jqvmap/dist/jquery.vmap.js"/>
+        <h:outputScript name="vendors/jqvmap/dist/maps/jquery.vmap.world.js"/>
+        <h:outputScript name="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"/>
+        <!-- bootstrap-daterangepicker -->
+        <h:outputScript name="vendors/moment/min/moment.min.js"/>
+        <h:outputScript name="vendors/bootstrap-daterangepicker/daterangepicker.js"/>
+        <!-- bootstrap-datetimepicker -->    
+        <h:outputScript name="vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"/>
+        <!-- Ion.RangeSlider -->
+        <h:outputScript name="vendors/ion.rangeSlider/js/ion.rangeSlider.min.js"/>
+        <!-- Bootstrap Colorpicker -->
+        <h:outputScript name="vendors/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"/>
+        <!-- jquery.inputmask -->
+        <h:outputScript name="vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"/>
+        <!-- jQuery Knob -->
+        <h:outputScript name="vendors/jquery-knob/dist/jquery.knob.min.js"/>
+        <!-- Cropper -->
+        <h:outputScript name="vendors/cropper/dist/cropper.min.js"/>
+        <!-- bootstrap-wysiwyg -->
+        <h:outputScript name="vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"/>
+        <h:outputScript name="vendors/jquery.hotkeys/jquery.hotkeys.js"/>
+        <h:outputScript name="vendors/google-code-prettify/src/prettify.js"/>
+        <!-- jQuery Tags Input -->
+        <h:outputScript name="vendors/jquery.tagsinput/src/jquery.tagsinput.js"/>
+        <!-- Switchery -->
+        <h:outputScript name="vendors/switchery/dist/switchery.min.js"/>
+        <!-- Select2 -->
+        <h:outputScript name="vendors/select2/dist/js/select2.full.min.js"/>
+        <!-- Parsley -->
+        <h:outputScript name="vendors/parsleyjs/dist/parsley.min.js"/>
+        <!-- Autosize -->
+        <h:outputScript name="vendors/autosize/dist/autosize.min.js"/>
+        <!-- jQuery autocomplete -->
+        <h:outputScript name="vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"/>
+        <!-- starrr -->
+        <h:outputScript name="vendors/starrr/dist/starrr.js"/>
+
+        <!-- Custom Theme Scripts -->
+        <h:outputScript name="build/js/custom.min.js"/>
+
+        <!-- Initialize datetimepicker -->
+        <script>
+            $('#myDatepicker').datetimepicker();
+
+            $('#myDatepicker2').datetimepicker({
+                format: 'DD.MM.YYYY'
+            });
+
+            $('#myDatepicker3').datetimepicker({
+                format: 'HH:mm'
+            });
+
+            $('#myDatepicker4').datetimepicker({
+                ignoreReadonly: true,
+                allowInputToggle: true
+            });
+
+            $('#datetimepicker6').datetimepicker();
+
+            $('#datetimepicker7').datetimepicker({
+                useCurrent: false
+            });
+
+            $("#datetimepicker6").on("dp.change", function (e) {
+                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+            });
+
+            $("#datetimepicker7").on("dp.change", function (e) {
+                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+            });
+        </script>
+
+    </h:body>
+
+</html>
+

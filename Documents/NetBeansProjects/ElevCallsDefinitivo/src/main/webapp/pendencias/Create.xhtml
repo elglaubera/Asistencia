@@ -1,0 +1,333 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <!-- Bootstrap -->
+        <h:outputStylesheet name="vendors/bootstrap/dist/css/bootstrap.min.css"/>
+        <!-- Font Awesome -->
+        <h:outputStylesheet name="vendors/font-awesome/css/font-awesome.min.css"/>
+        <!-- NProgress -->
+        <h:outputStylesheet name="vendors/nprogress/nprogress.css"/>
+        <!-- iCheck -->
+        <h:outputStylesheet name="vendors/iCheck/skins/flat/green.css"/>
+        <!-- bootstrap-wysiwyg -->
+        <h:outputStylesheet name="vendors/google-code-prettify/bin/prettify.min.css"/>
+        <!-- Select2 -->
+        <h:outputStylesheet name="vendors/select2/dist/css/select2.min.css"/>
+        <!-- Switchery -->
+        <h:outputStylesheet name="vendors/switchery/dist/switchery.min.css"/>
+        <!-- starrr -->
+        <h:outputStylesheet name="vendors/starrr/dist/starrr.css"/>
+        <!-- bootstrap-daterangepicker -->
+        <h:outputStylesheet name="vendors/bootstrap-daterangepicker/daterangepicker.css"/>
+        <!-- bootstrap-progressbar -->
+        <h:outputStylesheet name="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css"/>
+        <!-- JQVMap -->
+        <h:outputStylesheet name="vendors/jqvmap/dist/jqvmap.min.css"/>
+        <!-- Custom Theme Style -->
+        <h:outputStylesheet name="build/css/custom.min.css"/>
+
+        <title>Pendências</title>
+
+    </h:head>
+
+    <h:body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                <div class="col-md-3 left_col">
+                    <div class="left_col scroll-view">
+                        <div class="navbar nav_title" style="border: 0;">
+                            <a href="../index.xhtml" class="site_title"><i class="fa fa-wrench"></i> <span>ElevCalls</span></a>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- menu profile quick info -->
+                        <div class="profile clearfix">
+                            <div class="profile_info">
+                                <span>Bem vindo,</span>
+                                <h2></h2>
+                            </div>
+                        </div>
+                        <!-- /menu profile quick info -->
+
+
+                        <!-- sidebar menu -->
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                <h3>Menu</h3>
+                                <ul class="nav side-menu">
+                                    <li><a><i class="fa fa-phone-square"></i> Chamadas <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="../chamadas/Create.xhtml">Registrar</a></li>
+                                            <li><a href="../chamadas/List.xhtml">Listar</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-building-o"></i> Condomínios <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="../condominios/Create.xhtml">Cadastrar</a></li>
+                                            <li><a href="../condominios/List.xhtml">Listar</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-cogs"></i> Peças <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="../pecas/Create.xhtml">Cadastrar</a></li>
+                                            <li><a href="../pecas/List.xhtml">Listar</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-user"></i> Funcionários <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="../funcionarios/Create.xhtml">Cadastrar</a></li>
+                                            <li><a href="../funcionarios/List.xhtml">Listar</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-list"></i> Pendências <span class="fa fa-chevron-down"></span></a>
+                                        <h:form>
+                                            <ul class="nav child_menu">
+                                                <li><h:commandLink action="#{pendenciasController.prepareCreate}" value="Cadastrar"/></li>
+                                                <li><h:commandLink action="#{pendenciasController.prepareList}" value="Listar" immediate="true"/></li>
+                                            </ul>
+                                        </h:form>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div><!-- /sidebar menu -->
+
+                        <!-- /menu footer buttons -->
+                        <!-- /menu footer buttons -->
+                    </div>
+                </div>
+
+                <!-- top navigation -->
+                <div class="top_nav">
+                    <div class="nav_menu">
+                        <nav>
+                            <div class="nav toggle">
+                                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                            </div>
+
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="">
+                                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        Usuário
+                                        <span class=" fa fa-angle-down"></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                        <li><a href="../login/Create.xhtml"> Cadastrar Usuário</a></li>
+                                        <li><a href="../login/List.xhtml"> Lista de usuários</a></li>
+                                        <li><a href="../index.xhtml"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- /top navigation -->
+
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <div class="">
+                        <div class="page-title">
+                            <div class="title_left">
+                                <h3>Cadastro de Pendências</h3>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Informações </h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <h:panelGroup id="messagePanel" layout="block">
+                                            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                                        </h:panelGroup>
+                                        <h:form>
+                                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Ordem de serviço *" for="ordemServico" />
+                                                <h:inputText class="form-control" id="ordemServico" value="#{pendenciasController.selected.ordemServico}" title="#{bundle.CreatePendenciasTitle_ordemServico}" />
+                                            </div>
+                                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Condomínio *" for="condominios" />
+                                                <h:selectOneMenu class="form-control" id="condominios" value="#{pendenciasController.selected.condominios}" title="#{bundle.CreatePendenciasTitle_condominios}" required="true" requiredMessage="#{bundle.CreatePendenciasRequiredMessage_condominios}">
+                                                    <f:selectItems value="#{condominiosController.itemsAvailableSelectOne}"/>
+                                                </h:selectOneMenu>
+                                            </div>
+                                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Nº Elevador *" for="numElev" />
+                                                <h:inputText class="form-control" id="numElev" value="#{pendenciasController.selected.numElev}" title="#{bundle.CreatePendenciasTitle_numElev}" />
+                                            </div>
+                                            <div class="ln_solid col-md-12 col-sm-12 col-xs-12 form-group"></div>
+                                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Bloco *" for="bloco" />
+                                                <h:inputText class="form-control" id="bloco" value="#{pendenciasController.selected.bloco}" title="#{bundle.CreatePendenciasTitle_bloco}" />
+                                            </div>
+                                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Técnico *" for="funcionarios" />
+                                                <h:selectOneMenu class="form-control" id="funcionarios" value="#{pendenciasController.selected.funcionarios}" title="#{bundle.CreatePendenciasTitle_funcionarios}" required="true" requiredMessage="#{bundle.CreatePendenciasRequiredMessage_funcionarios}">
+                                                    <f:selectItems value="#{funcionariosController.itemsAvailableSelectOne}"/>
+                                                </h:selectOneMenu>
+                                            </div>
+                                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Login *" for="usuario" />
+                                                <h:selectOneMenu class="form-control" id="usuario" value="#{pendenciasController.selected.usuario}" title="#{bundle.CreatePendenciasTitle_usuario}" required="true" requiredMessage="#{bundle.CreatePendenciasRequiredMessage_usuario}">
+                                                    <f:selectItems value="#{loginController.itemsAvailableSelectOne}"/>
+                                                </h:selectOneMenu>
+                                            </div>
+                                            <div class="ln_solid col-md-12 col-sm-12 col-xs-12 form-group"></div>
+                                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Prioridade *" for="prioridade" />
+                                                <h:inputText class="form-control" id="prioridade" value="#{pendenciasController.selected.prioridade}" title="#{bundle.CreatePendenciasTitle_prioridade}" />
+                                            </div>
+                                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Status *" for="status" />
+                                                <h:inputText class="form-control" id="status" value="#{pendenciasController.selected.status}" title="#{bundle.CreatePendenciasTitle_status}" />
+                                            </div>
+                                            <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Data e Hora *" for="dataHora" />
+                                                <h:inputText class="form-control" id="dataHora" value="#{pendenciasController.selected.dataHora}" title="#{bundle.CreatePendenciasTitle_dataHora}" />
+                                            </div>
+                                            <div class="ln_solid col-md-12 col-sm-12 col-xs-12 form-group"></div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                                <h:outputLabel value="Descrição *" for="descricao" />
+                                                <h:inputTextarea rows="4" class="form-control" id="descricao" value="#{pendenciasController.selected.descricao}" title="#{bundle.CreatePendenciasTitle_descricao}" />
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                                <br/>
+                                                <br/>
+                                                <div class="col-md-9 col-sm-6 col-xs-12 col-md-offset-3">
+                                                    <h:commandButton type="reset" class="btn btn-warning" value="Apagar"/>
+                                                    <h:commandButton action="#{pendenciasController.prepareList}" class="btn btn-danger" value="Cancelar" immediate="true"/> 
+                                                    <h:commandButton type="submit" class="btn btn-success" action="#{pendenciasController.create}" value="Salvar"/>
+                                                </div>
+                                            </div>
+                                            <div class="ln_solid col-md-12 col-sm-12 col-xs-12 form-group"></div>
+                                        </h:form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /page content -->
+
+                <!-- footer content -->
+                <footer>
+                    <div class="pull-right">
+                        ElevCalls - Criado por Glauber Rodrigues
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <h:outputScript name="vendors/jquery/dist/jquery.min.js"/>
+        <!-- Bootstrap -->
+        <h:outputScript name="vendors/bootstrap/dist/js/bootstrap.min.js"/>
+        <!-- FastClick -->
+        <h:outputScript name="vendors/fastclick/lib/fastclick.js"/>
+        <!-- NProgress -->
+        <h:outputScript name="vendors/nprogress/nprogress.js"/>
+        <!-- Chart.js -->
+        <h:outputScript name="vendors/Chart.js/dist/Chart.min.js"/>
+        <!-- gauge.js -->
+        <h:outputStylesheet name="vendors/gauge.js/dist/gauge.min.js"/>
+        <!-- bootstrap-progressbar -->
+        <h:outputScript name="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"/>
+        <!-- iCheck -->
+        <h:outputScript name="vendors/iCheck/icheck.min.js"/>
+        <!-- iCheck -->
+        <h:outputScript name="vendors/iCheck/icheck.min.js"/>
+        <!-- Skycons -->
+        <h:outputScript name="vendors/skycons/skycons.js"/>
+        <!-- Flot -->
+        <h:outputScript name="vendors/Flot/jquery.flot.js"/>
+        <h:outputScript name="vendors/Flot/jquery.flot.pie.js"/>
+        <h:outputScript name="vendors/Flot/jquery.flot.time.js"/>
+        <h:outputScript name="vendors/Flot/jquery.flot.stack.js"/>
+        <h:outputScript name="vendors/Flot/jquery.flot.resize.js"/>
+        <!-- Flot plugins -->
+        <h:outputScript name="vendors/flot.orderbars/js/jquery.flot.orderBars.js"/>
+        <h:outputScript name="vendors/flot-spline/js/jquery.flot.spline.min.js"/>
+        <h:outputScript name="vendors/flot.curvedlines/curvedLines.js"/>
+        <!-- DateJS -->
+        <h:outputScript name="vendors/DateJS/build/date.js"/>
+        <!-- JQVMap -->
+        <h:outputScript name="vendors/jqvmap/dist/jquery.vmap.js"/>
+        <h:outputScript name="vendors/jqvmap/dist/maps/jquery.vmap.world.js"/>
+        <h:outputScript name="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"/>
+        <!-- bootstrap-daterangepicker -->
+        <h:outputScript name="vendors/moment/min/moment.min.js"/>
+        <h:outputScript name="vendors/bootstrap-daterangepicker/daterangepicker.js"/>
+        <!-- bootstrap-wysiwyg -->
+        <h:outputScript name="vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"/>
+        <h:outputScript name="vendors/jquery.hotkeys/jquery.hotkeys.js"/>
+        <h:outputScript name="vendors/google-code-prettify/src/prettify.js"/>
+        <!-- jQuery Tags Input -->
+        <h:outputScript name="vendors/jquery.tagsinput/src/jquery.tagsinput.js"/>
+        <!-- Switchery -->
+        <h:outputScript name="vendors/switchery/dist/switchery.min.js"/>
+        <!-- Select2 -->
+        <h:outputScript name="vendors/select2/dist/js/select2.full.min.js"/>
+        <!-- Parsley -->
+        <h:outputScript name="vendors/parsleyjs/dist/parsley.min.js"/>
+        <!-- Autosize -->
+        <h:outputScript name="vendors/autosize/dist/autosize.min.js"/>
+        <!-- jQuery autocomplete -->
+        <h:outputScript name="vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"/>
+        <!-- starrr -->
+        <h:outputScript name="vendors/starrr/dist/starrr.js"/>
+
+        <!-- Custom Theme Scripts -->
+        <h:outputScript name="build/js/custom.min.js"/>
+
+        <!-- Initialize datetimepicker -->
+        <script>
+            $('#myDatepicker').datetimepicker();
+
+            $('#myDatepicker2').datetimepicker({
+                format: 'DD.MM.YYYY'
+            });
+
+            $('#myDatepicker3').datetimepicker({
+                format: 'hh:mm A'
+            });
+
+            $('#myDatepicker4').datetimepicker({
+                ignoreReadonly: true,
+                allowInputToggle: true
+            });
+
+            $('#datetimepicker6').datetimepicker();
+
+            $('#datetimepicker7').datetimepicker({
+                useCurrent: false
+            });
+
+            $("#datetimepicker6").on("dp.change", function (e) {
+                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+            });
+
+            $("#datetimepicker7").on("dp.change", function (e) {
+                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+            });
+        </script>
+
+    </h:body>
+
+</html>
+
