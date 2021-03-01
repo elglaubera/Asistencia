@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListProgramacionAsistenciaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListProgramacionAsistenciaEmpty}" rendered="#{programacionAsistenciaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{programacionAsistenciaController.items.rowCount > 0}">
+                    <h:outputText value="#{programacionAsistenciaController.pagination.pageFirstItem + 1}..#{programacionAsistenciaController.pagination.pageLastItem + 1}/#{programacionAsistenciaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{programacionAsistenciaController.previous}" value="#{bundle.Previous} #{programacionAsistenciaController.pagination.pageSize}" rendered="#{programacionAsistenciaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{programacionAsistenciaController.next}" value="#{bundle.Next} #{programacionAsistenciaController.pagination.pageSize}" rendered="#{programacionAsistenciaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{programacionAsistenciaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProgramacionAsistenciaTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProgramacionAsistenciaTitle_xinermed}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.xinermed}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProgramacionAsistenciaTitle_hmc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.hmc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProgramacionAsistenciaTitle_hs}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.hs}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProgramacionAsistenciaTitle_mutual}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mutual}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProgramacionAsistenciaTitle_particular}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.particular}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProgramacionAsistenciaTitle_empleados}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.empleados}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProgramacionAsistenciaTitle_data}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.data}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProgramacionAsistenciaTitle_hora}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.hora}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{programacionAsistenciaController.prepareView}" value="#{bundle.ListProgramacionAsistenciaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{programacionAsistenciaController.prepareEdit}" value="#{bundle.ListProgramacionAsistenciaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{programacionAsistenciaController.destroy}" value="#{bundle.ListProgramacionAsistenciaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{programacionAsistenciaController.prepareCreate}" value="#{bundle.ListProgramacionAsistenciaCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListProgramacionAsistenciaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

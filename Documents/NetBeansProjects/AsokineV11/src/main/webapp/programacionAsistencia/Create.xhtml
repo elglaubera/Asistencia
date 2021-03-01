@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateProgramacionAsistenciaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateProgramacionAsistenciaLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{programacionAsistenciaController.selected.id}" title="#{bundle.CreateProgramacionAsistenciaTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateProgramacionAsistenciaLabel_xinermed}" for="xinermed" />
+                    <h:selectOneMenu id="xinermed" value="#{programacionAsistenciaController.selected.xinermed}" title="#{bundle.CreateProgramacionAsistenciaTitle_xinermed}" required="true" requiredMessage="#{bundle.CreateProgramacionAsistenciaRequiredMessage_xinermed}">
+                        <f:selectItems value="#{xinermedController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateProgramacionAsistenciaLabel_hmc}" for="hmc" />
+                    <h:selectOneMenu id="hmc" value="#{programacionAsistenciaController.selected.hmc}" title="#{bundle.CreateProgramacionAsistenciaTitle_hmc}" required="true" requiredMessage="#{bundle.CreateProgramacionAsistenciaRequiredMessage_hmc}">
+                        <f:selectItems value="#{hMCController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateProgramacionAsistenciaLabel_hs}" for="hs" />
+                    <h:selectOneMenu id="hs" value="#{programacionAsistenciaController.selected.hs}" title="#{bundle.CreateProgramacionAsistenciaTitle_hs}" required="true" requiredMessage="#{bundle.CreateProgramacionAsistenciaRequiredMessage_hs}">
+                        <f:selectItems value="#{hSController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateProgramacionAsistenciaLabel_mutual}" for="mutual" />
+                    <h:selectOneMenu id="mutual" value="#{programacionAsistenciaController.selected.mutual}" title="#{bundle.CreateProgramacionAsistenciaTitle_mutual}" required="true" requiredMessage="#{bundle.CreateProgramacionAsistenciaRequiredMessage_mutual}">
+                        <f:selectItems value="#{mutualController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateProgramacionAsistenciaLabel_particular}" for="particular" />
+                    <h:selectOneMenu id="particular" value="#{programacionAsistenciaController.selected.particular}" title="#{bundle.CreateProgramacionAsistenciaTitle_particular}" required="true" requiredMessage="#{bundle.CreateProgramacionAsistenciaRequiredMessage_particular}">
+                        <f:selectItems value="#{particularController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateProgramacionAsistenciaLabel_empleados}" for="empleados" />
+                    <h:selectOneMenu id="empleados" value="#{programacionAsistenciaController.selected.empleados}" title="#{bundle.CreateProgramacionAsistenciaTitle_empleados}" required="true" requiredMessage="#{bundle.CreateProgramacionAsistenciaRequiredMessage_empleados}">
+                        <f:selectItems value="#{empleadosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateProgramacionAsistenciaLabel_data}" for="data" />
+                    <h:inputText id="data" value="#{programacionAsistenciaController.selected.data}" title="#{bundle.CreateProgramacionAsistenciaTitle_data}" />
+                    <h:outputLabel value="#{bundle.CreateProgramacionAsistenciaLabel_hora}" for="hora" />
+                    <h:inputText id="hora" value="#{programacionAsistenciaController.selected.hora}" title="#{bundle.CreateProgramacionAsistenciaTitle_hora}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{programacionAsistenciaController.create}" value="#{bundle.CreateProgramacionAsistenciaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{programacionAsistenciaController.prepareList}" value="#{bundle.CreateProgramacionAsistenciaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateProgramacionAsistenciaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAsistenciaMutualTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAsistenciaMutualEmpty}" rendered="#{asistenciaMutualController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{asistenciaMutualController.items.rowCount > 0}">
+                    <h:outputText value="#{asistenciaMutualController.pagination.pageFirstItem + 1}..#{asistenciaMutualController.pagination.pageLastItem + 1}/#{asistenciaMutualController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{asistenciaMutualController.previous}" value="#{bundle.Previous} #{asistenciaMutualController.pagination.pageSize}" rendered="#{asistenciaMutualController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{asistenciaMutualController.next}" value="#{bundle.Next} #{asistenciaMutualController.pagination.pageSize}" rendered="#{asistenciaMutualController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{asistenciaMutualController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAsistenciaMutualTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAsistenciaMutualTitle_programacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.programacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAsistenciaMutualTitle_horaLlegada}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.horaLlegada}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAsistenciaMutualTitle_horaSalida}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.horaSalida}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAsistenciaMutualTitle_descripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripcion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{asistenciaMutualController.prepareView}" value="#{bundle.ListAsistenciaMutualViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{asistenciaMutualController.prepareEdit}" value="#{bundle.ListAsistenciaMutualEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{asistenciaMutualController.destroy}" value="#{bundle.ListAsistenciaMutualDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{asistenciaMutualController.prepareCreate}" value="#{bundle.ListAsistenciaMutualCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAsistenciaMutualIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePagosHSTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePagosHSLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{pagosHSController.selected.id}" title="#{bundle.CreatePagosHSTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreatePagosHSLabel_hs}" for="hs" />
+                    <h:selectOneMenu id="hs" value="#{pagosHSController.selected.hs}" title="#{bundle.CreatePagosHSTitle_hs}" required="true" requiredMessage="#{bundle.CreatePagosHSRequiredMessage_hs}">
+                        <f:selectItems value="#{hSController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePagosHSLabel_empleado}" for="empleado" />
+                    <h:selectOneMenu id="empleado" value="#{pagosHSController.selected.empleado}" title="#{bundle.CreatePagosHSTitle_empleado}" required="true" requiredMessage="#{bundle.CreatePagosHSRequiredMessage_empleado}">
+                        <f:selectItems value="#{empleadosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePagosHSLabel_asistencia}" for="asistencia" />
+                    <h:selectOneMenu id="asistencia" value="#{pagosHSController.selected.asistencia}" title="#{bundle.CreatePagosHSTitle_asistencia}" required="true" requiredMessage="#{bundle.CreatePagosHSRequiredMessage_asistencia}">
+                        <f:selectItems value="#{asistenciaHSController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{pagosHSController.create}" value="#{bundle.CreatePagosHSSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{pagosHSController.prepareList}" value="#{bundle.CreatePagosHSShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePagosHSIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

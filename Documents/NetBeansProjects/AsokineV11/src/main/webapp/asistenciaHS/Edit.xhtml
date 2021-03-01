@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAsistenciaHSTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAsistenciaHSLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{asistenciaHSController.selected.id}" title="#{bundle.EditAsistenciaHSTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditAsistenciaHSLabel_programacion}" for="programacion" />
+                    <h:selectOneMenu id="programacion" value="#{asistenciaHSController.selected.programacion}" title="#{bundle.EditAsistenciaHSTitle_programacion}" required="true" requiredMessage="#{bundle.EditAsistenciaHSRequiredMessage_programacion}">
+                        <f:selectItems value="#{programacionHSController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditAsistenciaHSLabel_horaLlegada}" for="horaLlegada" />
+                    <h:inputText id="horaLlegada" value="#{asistenciaHSController.selected.horaLlegada}" title="#{bundle.EditAsistenciaHSTitle_horaLlegada}" />
+                    <h:outputLabel value="#{bundle.EditAsistenciaHSLabel_horaSalida}" for="horaSalida" />
+                    <h:inputText id="horaSalida" value="#{asistenciaHSController.selected.horaSalida}" title="#{bundle.EditAsistenciaHSTitle_horaSalida}" />
+                    <h:outputLabel value="#{bundle.EditAsistenciaHSLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{asistenciaHSController.selected.descripcion}" title="#{bundle.EditAsistenciaHSTitle_descripcion}" />
+                </h:panelGrid>
+                <h:commandLink action="#{asistenciaHSController.update}" value="#{bundle.EditAsistenciaHSSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAsistenciaHSViewLink}"/>
+                <br />
+                <h:commandLink action="#{asistenciaHSController.prepareList}" value="#{bundle.EditAsistenciaHSShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAsistenciaHSIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

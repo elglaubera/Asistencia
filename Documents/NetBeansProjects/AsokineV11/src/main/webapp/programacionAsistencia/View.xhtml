@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewProgramacionAsistenciaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewProgramacionAsistenciaLabel_id}"/>
+                    <h:outputText value="#{programacionAsistenciaController.selected.id}" title="#{bundle.ViewProgramacionAsistenciaTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewProgramacionAsistenciaLabel_xinermed}"/>
+                    <h:outputText value="#{programacionAsistenciaController.selected.xinermed}" title="#{bundle.ViewProgramacionAsistenciaTitle_xinermed}"/>
+                    <h:outputText value="#{bundle.ViewProgramacionAsistenciaLabel_hmc}"/>
+                    <h:outputText value="#{programacionAsistenciaController.selected.hmc}" title="#{bundle.ViewProgramacionAsistenciaTitle_hmc}"/>
+                    <h:outputText value="#{bundle.ViewProgramacionAsistenciaLabel_hs}"/>
+                    <h:outputText value="#{programacionAsistenciaController.selected.hs}" title="#{bundle.ViewProgramacionAsistenciaTitle_hs}"/>
+                    <h:outputText value="#{bundle.ViewProgramacionAsistenciaLabel_mutual}"/>
+                    <h:outputText value="#{programacionAsistenciaController.selected.mutual}" title="#{bundle.ViewProgramacionAsistenciaTitle_mutual}"/>
+                    <h:outputText value="#{bundle.ViewProgramacionAsistenciaLabel_particular}"/>
+                    <h:outputText value="#{programacionAsistenciaController.selected.particular}" title="#{bundle.ViewProgramacionAsistenciaTitle_particular}"/>
+                    <h:outputText value="#{bundle.ViewProgramacionAsistenciaLabel_empleados}"/>
+                    <h:outputText value="#{programacionAsistenciaController.selected.empleados}" title="#{bundle.ViewProgramacionAsistenciaTitle_empleados}"/>
+                    <h:outputText value="#{bundle.ViewProgramacionAsistenciaLabel_data}"/>
+                    <h:outputText value="#{programacionAsistenciaController.selected.data}" title="#{bundle.ViewProgramacionAsistenciaTitle_data}"/>
+                    <h:outputText value="#{bundle.ViewProgramacionAsistenciaLabel_hora}"/>
+                    <h:outputText value="#{programacionAsistenciaController.selected.hora}" title="#{bundle.ViewProgramacionAsistenciaTitle_hora}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{programacionAsistenciaController.destroyAndView}" value="#{bundle.ViewProgramacionAsistenciaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewProgramacionAsistenciaEditLink}"/>
+                <br />
+                <h:commandLink action="#{programacionAsistenciaController.prepareCreate}" value="#{bundle.ViewProgramacionAsistenciaCreateLink}" />
+                <br />
+                <h:commandLink action="#{programacionAsistenciaController.prepareList}" value="#{bundle.ViewProgramacionAsistenciaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewProgramacionAsistenciaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

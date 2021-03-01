@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPagosMutualTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPagosMutualLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{pagosMutualController.selected.id}" title="#{bundle.EditPagosMutualTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditPagosMutualLabel_mutual}" for="mutual" />
+                    <h:selectOneMenu id="mutual" value="#{pagosMutualController.selected.mutual}" title="#{bundle.EditPagosMutualTitle_mutual}" required="true" requiredMessage="#{bundle.EditPagosMutualRequiredMessage_mutual}">
+                        <f:selectItems value="#{mutualController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPagosMutualLabel_empleado}" for="empleado" />
+                    <h:selectOneMenu id="empleado" value="#{pagosMutualController.selected.empleado}" title="#{bundle.EditPagosMutualTitle_empleado}" required="true" requiredMessage="#{bundle.EditPagosMutualRequiredMessage_empleado}">
+                        <f:selectItems value="#{empleadosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPagosMutualLabel_asistencia}" for="asistencia" />
+                    <h:selectOneMenu id="asistencia" value="#{pagosMutualController.selected.asistencia}" title="#{bundle.EditPagosMutualTitle_asistencia}" required="true" requiredMessage="#{bundle.EditPagosMutualRequiredMessage_asistencia}">
+                        <f:selectItems value="#{asistenciaMutualController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{pagosMutualController.update}" value="#{bundle.EditPagosMutualSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPagosMutualViewLink}"/>
+                <br />
+                <h:commandLink action="#{pagosMutualController.prepareList}" value="#{bundle.EditPagosMutualShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPagosMutualIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
